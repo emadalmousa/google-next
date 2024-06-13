@@ -1,8 +1,12 @@
 import React from 'react'
+import HomeHeader from './HomeHeader'
 
 const Inhalt = () => {
   return (
-    <div>Inhalt</div>
+    <div>
+      <HomeHeader />
+      Inhalt
+    </div>
   )
 }
 
