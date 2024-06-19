@@ -1,18 +1,13 @@
 
 import ImageSearchResults from '@/app/components/ImageSearchResults';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 
-interface Props {
-  searchParams: {
-    searchTerm: string;
-  };
-}
 
-const page = async ({ searchParams }: Props) => {
+const page = async ({ searchParams }: any) => {
+  const startIndex = searchParams.start || '1';
   const res = await fetch(` https://www.googleapis.com/customsearch/v1?key=${process.env.
-    API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&searchType=image`);
+    API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&searchType=image&start${startIndex}`);
   if (!res.ok) {
     throw new Error('Somthing is wrong');
   }
