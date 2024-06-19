@@ -1,3 +1,4 @@
+import WebSearchResults from '@/app/components/WebSearchResults';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
@@ -27,10 +28,8 @@ const page = async ({ searchParams }: Props) => {
 
   }
   return (
-    <div className='text-red-500'>
-      {results && results.map((result: any) => (
-        <h1>{result.title}</h1>
-      ))}
+    <div >
+      {<WebSearchResults results={data} />}
     </div>
   )
 }
